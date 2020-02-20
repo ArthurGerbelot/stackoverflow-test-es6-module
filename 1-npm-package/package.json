@@ -1,0 +1,8 @@
+{
+  "name": "test-es6-module-npm-package",
+  "version": "0.1.0",
+  "description": "Text NPM package ESModule",
+  "main": "src/index.js",
+  "type": "module",
+  "author": "ArthyFiciel"
+}
