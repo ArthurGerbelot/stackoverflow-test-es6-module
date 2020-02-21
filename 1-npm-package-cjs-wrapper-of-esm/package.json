@@ -1,0 +1,33 @@
+{
+  "name": "test-es6-wrapped-for-commonjs",
+  "version": "0.1.7",
+  "description": "Text NPM package Wrapper of ESModule to implement a CommonJS version",
+  "main": "lib/index.js",
+  "author": "ArthyFiciel",
+  "scripts": {
+    "prepublishOnly": "npm i && npm run build",
+    "build": "npm run clean && npm run transpile",
+    "transpile": "npm run transpile:cjs",
+    "transpile:cjs": "node_modules/.bin/babel ./src --out-dir lib && echo \"{\\\"type\\\":\\\"commonjs\\\"}\" > ./lib/package.json",
+    "transpile:js": "MODULE=true node_modules/.bin/babel ./src --out-dir lib",
+    "clean": "node_modules/.bin/rimraf lib"
+  },
+  "dependencies": {
+    "test-es6-module-npm-package": "^0.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "rimraf": "^3.0.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-modules-commonjs"
+    ]
+  }
+}

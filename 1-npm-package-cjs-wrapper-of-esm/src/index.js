@@ -1,0 +1,1 @@
+export * from 'test-es6-module-npm-package';
